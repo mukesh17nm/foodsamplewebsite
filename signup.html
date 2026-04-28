@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sign Up</title>
+
+<style>
+body{
+    background: yellow;
+    font-family: Arial;
+}
+
+.header{
+    background: linear-gradient(to right, rgb(6,23,201), rgb(229,11,149));
+    text-align: center;
+    color:white;
+    padding:px;
+   
+    font-weight:bold;
+}
+
+.box{
+    background:white;
+    width:360px;
+    margin:120px auto;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 0 15px gray;
+    text-align:center;
+}
+
+input{
+    width:90%;
+    padding:10px;
+    margin:10px;
+    border-radius:8px;
+    border:1px solid gray;
+}
+
+button{
+    background:rgb(204,70,29);
+    color:white;
+    border:none;
+    padding:10px 25px;
+    border-radius:8px;
+}
+
+.error{
+    color:red;
+    font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">Food Website</div>
+
+<div class="box">
+<h2>Create Account</h2>
+
+<input type="text" placeholder="First Name"><br>
+<input type="text" placeholder="Last Name"><br>
+<input type="datetime" placeholder="DOB"><br>
+<input type="text" placeholder="Email id"><br>
+<input type="password" id="pass" placeholder="Password"><br>
+
+<div class="error" id="msg"></div>
+
+<button onclick="check()">Sign Up</button>
+
+<p>Already have account? <a href="login1.html">Login</a></p>
+</div>
+
+<script>
+function check(){
+    let p = document.getElementById("pass").value;
+
+    let symbol = /[@#$!%&]/;
+    let number = /[1234567890]/;
+
+    if(p.length < 8){
+        msg.innerHTML = "Password must be at least 8 characters";
+    }
+    else if(!number.test(p)){
+        msg.innerHTML = "Password must contain one number";
+    }
+    else if(!symbol.test(p)){
+        msg.innerHTML = "Password must contain one symbol (@ # $ ! % &)";
+    }
+    else{
+        msg.innerHTML = "Signup Successful ✅";
+        msg.style.color="green";
+    }
+}
+</script>
+
+</body>
+</html>
